@@ -1,0 +1,61 @@
+{
+    "name": "react-parallel/test-pool",
+    "description": "Pool meant for used in unit tests",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cees-Jan Kiewiet",
+            "email": "ceesjank@gmail.com",
+            "homepage": "http://wyrihaximus.net/"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "ext-parallel": "*",
+        "ext-random": "*",
+        "react-parallel/contracts": "^2@dev",
+        "react-parallel/event-loop": "^2@dev",
+        "react/async": "^4.3",
+        "react/event-loop": "^1.5",
+        "react/promise": "^3.1",
+        "thecodingmachine/safe": "^2.5",
+        "wyrihaximus/constants": "^1.6",
+        "wyrihaximus/metrics": "^2",
+        "wyrihaximus/pool-info": "^2.0",
+        "wyrihaximus/ticking-promise": "^3.1"
+    },
+    "require-dev": {
+        "react-parallel/pool-tests": "^4@dev",
+        "wyrihaximus/async-test-utilities": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "ReactParallel\\Pool\\Test\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ReactParallel\\Tests\\Pool\\Test\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "ergebnis/composer-normalize": true,
+            "icanhazstring/composer-unused": true,
+            "infection/extension-installer": true
+        },
+        "platform": {
+            "php": "8.2.13"
+        },
+        "sort-packages": true
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "composer normalize"
+        ],
+        "post-update-cmd": [
+            "composer normalize"
+        ]
+    }
+}
