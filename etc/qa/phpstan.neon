@@ -1,5 +1,9 @@
 parameters:
 	level: max
+	ignoreErrors:
+		-
+			message: '#Method ReactParallel\\Pool\\Test\\Direct::run\(\) should return T\|null but returns T\|void.#'
+			path: ../../src/Direct.php
 	ergebnis:
 		noExtends:
 			classesAllowedToBeExtended:
