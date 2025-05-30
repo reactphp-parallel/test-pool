@@ -8,7 +8,7 @@ use WyriHaximus\Metrics\Factory as MetricsFactory;
 use WyriHaximus\Metrics\Label\Name;
 use WyriHaximus\Metrics\Registry;
 
-final class Metrics
+final readonly class Metrics
 {
     public function __construct(
         private Registry\Gauges $threads,

@@ -4,6 +4,10 @@ parameters:
 		-
 			message: '#Method ReactParallel\\Pool\\Test\\Direct::run\(\) should return T\|null but returns T\|void.#'
 			path: ../../src/Direct.php
+		-
+			identifier: shipmonk.nonNormalizedType
+			path: ../../src/Direct.php
+			count: 10
 	ergebnis:
 		noExtends:
 			classesAllowedToBeExtended:
@@ -11,6 +15,3 @@ parameters:
 				- ReactParallel\EventLoop\CanceledFuture
 				- ReactParallel\EventLoop\KilledRuntime
 				- ReactParallel\Tests\AbstractPoolTest
-
-includes:
-	- ../../vendor/wyrihaximus/async-test-utilities/rules.neon

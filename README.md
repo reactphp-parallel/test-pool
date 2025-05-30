@@ -42,7 +42,7 @@ $test->run(function () {
 
 ## License ##
 
-Copyright 2024 [Cees-Jan Kiewiet](http://wyrihaximus.net/)
+Copyright 2025 [Cees-Jan Kiewiet](http://wyrihaximus.net/)
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation

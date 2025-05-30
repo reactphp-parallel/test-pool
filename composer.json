@@ -10,23 +10,23 @@
         }
     ],
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "ext-parallel": "*",
         "ext-random": "*",
-        "react-parallel/contracts": "^2.0.0",
-        "react-parallel/event-loop": "^2.0.0",
-        "react/async": "^4.3",
-        "react/event-loop": "^1.5",
-        "react/promise": "^3.1",
-        "thecodingmachine/safe": "^2.5",
-        "wyrihaximus/constants": "^1.6",
-        "wyrihaximus/metrics": "^2",
+        "react-parallel/contracts": "^2.1.0",
+        "react-parallel/event-loop": "^2.1.0",
+        "react/async": "^4.3.0",
+        "react/event-loop": "^1.5.0",
+        "react/promise": "^3.2.0",
+        "wyrihaximus/constants": "^1.6.0",
+        "wyrihaximus/metrics": "^3",
         "wyrihaximus/pool-info": "^2.0",
         "wyrihaximus/ticking-promise": "^3.1"
     },
     "require-dev": {
-        "react-parallel/pool-tests": "^4.0.0",
-        "wyrihaximus/async-test-utilities": "^7.2"
+        "react-parallel/pool-tests": "^5.0.0",
+        "wyrihaximus/async-test-utilities": "^9.3.0",
+        "wyrihaximus/makefiles": "^0.4.2"
     },
     "autoload": {
         "psr-4": {
@@ -43,10 +43,12 @@
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "ergebnis/composer-normalize": true,
             "icanhazstring/composer-unused": true,
-            "infection/extension-installer": true
+            "infection/extension-installer": true,
+            "phpstan/extension-installer": true,
+            "wyrihaximus/makefiles": true
         },
         "platform": {
-            "php": "8.2.13"
+            "php": "8.3.13"
         },
         "sort-packages": true
     },

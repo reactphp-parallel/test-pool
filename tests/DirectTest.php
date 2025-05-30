@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ReactParallel\Tests\Pool\Test;
 
+use PHPUnit\Framework\Attributes\Test;
 use ReactParallel\Contracts\PoolInterface;
 use ReactParallel\Pool\Test\Direct;
 use ReactParallel\Pool\Test\Metrics;
@@ -27,7 +28,7 @@ final class DirectTest extends AbstractPoolTest
         return (new Direct())->withMetrics(Metrics::create(MetricsFactory::create()));
     }
 
-    /** @test */
+    #[Test]
     public function aquireLock(): void
     {
         $pool = (new Direct())->withMetrics(Metrics::create(MetricsFactory::create()));
