@@ -14,8 +14,8 @@ use WyriHaximus\Metrics\Label;
 use WyriHaximus\PoolInfo\Info;
 
 use function count;
+use function hrtime;
 use function React\Async\await;
-use function Safe\hrtime;
 use function WyriHaximus\React\futurePromise;
 
 use const WyriHaximus\Constants\Boolean\FALSE_;
@@ -87,7 +87,6 @@ final class Direct implements LowLevelPoolInterface
                 throw new KilledRuntime();
             }
 
-            /** @psalm-suppress TooManyArguments */
             $result =  $callable(...$args);
             $this->idle++;
             Loop::futureTick(function (): void {
@@ -98,11 +97,7 @@ final class Direct implements LowLevelPoolInterface
             return $result;
         } finally {
             if ($this->metrics instanceof Metrics) {
-                /**
-                 * @psalm-suppress PossiblyInvalidOperand
-                 * @psalm-suppress PossiblyNullOperand
-                 */
-                $this->metrics->executionTime()->summary()->observe((hrtime(true) - $time) / 1e+9); /** @phpstan-ignore-line */
+                $this->metrics->executionTime()->summary()->observe((hrtime(true) - $time) / 1e+9);
                 $this->metrics->threads()->gauge(new Label('state', 'idle'))->incr();
                 $this->metrics->threads()->gauge(new Label('state', 'busy'))->dcr();
             }

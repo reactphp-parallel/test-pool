@@ -9,9 +9,9 @@ use ReactParallel\Contracts\GroupInterface;
 use function bin2hex;
 use function random_bytes;
 
-final class Group implements GroupInterface
+final readonly class Group implements GroupInterface
 {
-    private const BYTES = 16;
+    private const int BYTES = 16;
 
     private function __construct(private string $id)
     {
