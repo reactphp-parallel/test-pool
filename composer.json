@@ -1,63 +1,64 @@
 {
-    "name": "react-parallel/test-pool",
-    "description": "Pool meant for used in unit tests",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Cees-Jan Kiewiet",
-            "email": "ceesjank@gmail.com",
-            "homepage": "http://wyrihaximus.net/"
-        }
-    ],
-    "require": {
-        "php": "^8.3",
-        "ext-parallel": "*",
-        "ext-random": "*",
-        "react-parallel/contracts": "^2.1.0",
-        "react-parallel/event-loop": "^2.1.0",
-        "react/async": "^4.3.0",
-        "react/event-loop": "^1.5.0",
-        "react/promise": "^3.2.0",
-        "wyrihaximus/constants": "^1.6.0",
-        "wyrihaximus/metrics": "^3",
-        "wyrihaximus/pool-info": "^2.0",
-        "wyrihaximus/ticking-promise": "^3.1"
-    },
-    "require-dev": {
-        "react-parallel/pool-tests": "^5.0.0",
-        "wyrihaximus/async-test-utilities": "^9.3.0",
-        "wyrihaximus/makefiles": "^0.4.2"
-    },
-    "autoload": {
-        "psr-4": {
-            "ReactParallel\\Pool\\Test\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "ReactParallel\\Tests\\Pool\\Test\\": "tests/"
-        }
-    },
-    "config": {
-        "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "ergebnis/composer-normalize": true,
-            "icanhazstring/composer-unused": true,
-            "infection/extension-installer": true,
-            "phpstan/extension-installer": true,
-            "wyrihaximus/makefiles": true
-        },
-        "platform": {
-            "php": "8.3.13"
-        },
-        "sort-packages": true
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "composer normalize"
-        ],
-        "post-update-cmd": [
-            "composer normalize"
-        ]
+  "name": "react-parallel/test-pool",
+  "description": "Pool meant for used in unit tests",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Cees-Jan Kiewiet",
+      "email": "ceesjank@gmail.com",
+      "homepage": "http://wyrihaximus.net/"
     }
+  ],
+  "require": {
+    "php": "^8.4",
+    "ext-parallel": "*",
+    "ext-random": "*",
+    "react-parallel/contracts": "^2.1.0",
+    "react-parallel/event-loop": "^2.1.0",
+    "react/async": "^4.3.0",
+    "react/event-loop": "^1.5.0",
+    "react/promise": "^3.2.0",
+    "wyrihaximus/constants": "^1.6.0",
+    "wyrihaximus/metrics": "^3",
+    "wyrihaximus/pool-info": "^2.0",
+    "wyrihaximus/ticking-promise": "^3.1"
+  },
+  "require-dev": {
+    "react-parallel/pool-tests": "^5.1.0",
+    "wyrihaximus/async-test-utilities": "^10.1.0",
+    "wyrihaximus/makefiles": "^0.6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ReactParallel\\Pool\\Test\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ReactParallel\\Tests\\Pool\\Test\\": "tests/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "ergebnis/composer-normalize": true,
+      "icanhazstring/composer-unused": true,
+      "infection/extension-installer": true,
+      "phpstan/extension-installer": true,
+      "wyrihaximus/makefiles": true,
+      "wyrihaximus/test-utilities": true
+    },
+    "platform": {
+      "php": "8.4.13"
+    },
+    "sort-packages": true
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "make on-install-or-update || true"
+    ],
+    "post-update-cmd": [
+      "make on-install-or-update || true"
+    ]
+  }
 }

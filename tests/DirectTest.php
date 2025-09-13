@@ -20,18 +20,18 @@ final class DirectTest extends AbstractPoolTest
     /** @phpstan-ignore-next-line */
     private function poolFactory(): PoolInfoInterface
     {
-        return (new Direct())->withMetrics(Metrics::create(MetricsFactory::create()));
+        return new Direct()->withMetrics(Metrics::create(MetricsFactory::create()));
     }
 
     protected function createPool(): PoolInterface
     {
-        return (new Direct())->withMetrics(Metrics::create(MetricsFactory::create()));
+        return new Direct()->withMetrics(Metrics::create(MetricsFactory::create()));
     }
 
     #[Test]
     public function aquireLock(): void
     {
-        $pool = (new Direct())->withMetrics(Metrics::create(MetricsFactory::create()));
+        $pool = new Direct()->withMetrics(Metrics::create(MetricsFactory::create()));
 
         $group = $pool->acquireGroup();
         self::assertFalse($pool->close());
