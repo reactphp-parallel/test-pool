@@ -21,6 +21,7 @@ use function WyriHaximus\React\futurePromise;
 use const WyriHaximus\Constants\Boolean\FALSE_;
 use const WyriHaximus\Constants\Boolean\TRUE_;
 
+/** @api */
 final class Direct implements LowLevelPoolInterface
 {
     private Metrics|null $metrics = null;
