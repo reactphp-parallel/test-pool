@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use React\EventLoop\Factory;
 use ReactParallel\EventLoop\EventLoopBridge;
 use ReactParallel\Pool\Infinite\Direct;
@@ -10,16 +12,16 @@ $loop = Factory::create();
 
 $infinite = new Direct($loop, new EventLoopBridge($loop), 1);
 
-$infinite->run(function () {
+$infinite->run(static function () {
     throw new RuntimeException('Whoops I did it again!');
 
     return 'We shouldn\'t reach this!';
-})->always(function () use ($infinite, $loop) {
+})->always(static function () use ($infinite, $loop): void {
     $infinite->close();
     $loop->stop();
-})->then(function (string $oops) {
+})->then(static function (string $oops): void {
     echo $oops, PHP_EOL;
-}, function (Throwable $error) {
+}, static function (Throwable $error): void {
     echo $error, PHP_EOL;
 })->done();
 

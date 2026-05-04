@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Composer\InstalledVersions;
 use React\EventLoop\Factory;
 use ReactParallel\EventLoop\EventLoopBridge;
@@ -11,13 +13,13 @@ $loop = Factory::create();
 
 $finite = new Direct($loop, new EventLoopBridge($loop), 0.1);
 
-$loop->addTimer(1, function () use ($finite, $loop) {
+$loop->addTimer(1, static function () use ($finite, $loop): void {
     $finite->kill();
     $loop->stop();
 });
-$finite->run(function (): array {
+$finite->run(static function (): array {
     return array_merge(...array_map(static fn (string $package): array => [$package => InstalledVersions::getPrettyVersion($package)], InstalledVersions::getInstalledPackages()));
-})->then(function (array $versions): void {
+})->then(static function (array $versions): void {
     var_export($versions);
 });
 
