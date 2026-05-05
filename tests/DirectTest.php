@@ -17,8 +17,7 @@ final class DirectTest extends AbstractPoolTest
 {
     use PoolInfoTestTrait;
 
-    /** @phpstan-ignore-next-line */
-    private function poolFactory(): PoolInfoInterface
+    protected function poolFactory(): PoolInfoInterface
     {
         return new Direct()->withMetrics(Metrics::create(MetricsFactory::create()));
     }

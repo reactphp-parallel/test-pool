@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use React\EventLoop\Factory;
 use ReactParallel\EventLoop\EventLoopBridge;
 use ReactParallel\Pool\Infinite\Direct;
@@ -13,27 +15,28 @@ $loop = Factory::create();
 
 $infinite = new Direct($loop, new EventLoopBridge($loop), 0.1);
 
-$timer = $loop->addPeriodicTimer(1, function () use ($infinite) {
+$timer = $loop->addPeriodicTimer(1, static function () use ($infinite): void {
     var_export(iteratorOrArrayToArray($infinite->info()));
 });
 
 $promises = [];
 foreach (range(0, 250) as $i) {
-    $promises[] = $infinite->run(function($sleep) {
+    $promises[] = $infinite->run(static function ($sleep) {
         sleep($sleep);
+
         return $sleep;
-    }, [random_int(1, 13)])->then(function (int $sleep) use ($i) {
+    }, [random_int(1, 13)])->then(static function (int $sleep) use ($i) {
         echo $i, '; ', $sleep, PHP_EOL;
 
         return $sleep;
     });
 }
 
-$signalHandler = function () use ($infinite, $loop) {
+$signalHandler = static function () use ($infinite, $loop): void {
     $loop->stop();
     $infinite->close();
 };
-all($promises)->then(function ($v) use ($infinite, $loop, $signalHandler, $timer) {
+all($promises)->then(static function ($v) use ($infinite, $loop, $signalHandler, $timer): void {
     $infinite->close();
     $loop->removeSignal(SIGINT, $signalHandler);
     $loop->cancelTimer($timer);
