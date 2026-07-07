@@ -17,9 +17,7 @@ $loop->addTimer(1, static function () use ($finite, $loop): void {
     $finite->kill();
     $loop->stop();
 });
-$finite->run(static function (): array {
-    return array_merge(...array_map(static fn (string $package): array => [$package => InstalledVersions::getPrettyVersion($package)], InstalledVersions::getInstalledPackages()));
-})->then(static function (array $versions): void {
+$finite->run(static fn (): array => array_merge(...array_map(static fn (string $package): array => [$package => InstalledVersions::getPrettyVersion($package)], InstalledVersions::getInstalledPackages())))->then(static function (array $versions): void {
     var_export($versions);
 });
 

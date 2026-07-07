@@ -24,8 +24,8 @@ $signalHandler = static function () use ($infinite, $loop): void {
 
 $tick = static function () use (&$promises, $infinite, $loop, $signalHandler, $json, &$tick): void {
     if (count($promises) < 1000) {
-        $promises[] = $infinite->run(static function ($json) {
-            $json = json_decode($json, true);
+        $promises[] = $infinite->run(static function ($json): string {
+            $json = json_decode((string) $json, true);
 
             return md5(json_encode($json));
         }, [$json]);

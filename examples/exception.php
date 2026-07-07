@@ -12,7 +12,7 @@ $loop = Factory::create();
 
 $infinite = new Direct($loop, new EventLoopBridge($loop), 1);
 
-$infinite->run(static function () {
+$infinite->run(static function (): string {
     throw new RuntimeException('Whoops I did it again!');
 
     return 'We shouldn\'t reach this!';

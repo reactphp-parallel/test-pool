@@ -10,7 +10,7 @@ require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR 
 
 $loop     = Factory::create();
 $infinite = new Direct($loop, new EventLoopBridge($loop), 1);
-$infinite->run(static function () {
+$infinite->run(static function (): string {
     sleep(1);
 
     return 'Hoi!';
