@@ -25,7 +25,7 @@ foreach (range(0, 250) as $i) {
         sleep($sleep);
 
         return $sleep;
-    }, [random_int(1, 13)])->then(static function (int $sleep) use ($i) {
+    }, [random_int(1, 13)])->then(static function (int $sleep) use ($i): int {
         echo $i, '; ', $sleep, PHP_EOL;
 
         return $sleep;
