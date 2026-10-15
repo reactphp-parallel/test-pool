@@ -24,9 +24,9 @@
     "wyrihaximus/ticking-promise": "^3.2.0"
   },
   "require-dev": {
-    "react-parallel/pool-tests": "^7.0.0",
+    "react-parallel/pool-tests": "^7.1.0",
     "wyrihaximus/async-test-utilities": "^14.5.0",
-    "wyrihaximus/makefiles": "^0.12.3"
+    "wyrihaximus/makefiles": "^0.15.4"
   },
   "autoload": {
     "psr-4": {

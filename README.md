@@ -3,13 +3,11 @@
 ![Continuous Integration](https://github.com/Reactphp-parallel/test-pool/workflows/Continuous%20Integration/badge.svg)
 [![Latest Stable Version](https://poser.pugx.org/React-parallel/test-pool/v/stable.png)](https://packagist.org/packages/React-parallel/test-pool)
 [![Total Downloads](https://poser.pugx.org/React-parallel/test-pool/downloads.png)](https://packagist.org/packages/React-parallel/test-pool)
-[![Code Coverage](https://scrutinizer-ci.com/g/Reactphp-parallel/test-pool/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Reactphp-parallel/test-pool/?branch=master)
-[![Type Coverage](https://shepherd.dev/github/Reactphp-parallel/test-pool/coverage.svg)](https://shepherd.dev/github/Reactphp-parallel/test-pool)
 [![License](https://poser.pugx.org/React-parallel/test-pool/license.png)](https://packagist.org/packages/React-parallel/test-pool)
 
 Pool meant for used in unit tests
 
-## Install ##
+## Install
 
 To install via [Composer](http://getcomposer.org/), use the command below, it will automatically detect the latest version and bind it with `~`.
 
@@ -17,7 +15,7 @@ To install via [Composer](http://getcomposer.org/), use the command below, it wi
 composer require react-parallel/test-pool
 ```
 
-## Usage ##
+## Usage
 
 The following example will spin up a thread with a 1 second TTL clean up policy. Meaning that threads are kept around
 for 1 second waiting for something to do before closed. It then runs a closure in the thread that will wait for one
@@ -40,7 +38,7 @@ $test->run(function () {
 });
 ```
 
-## License ##
+## License
 
 Copyright 2026 [Cees-Jan Kiewiet](http://wyrihaximus.net/)
 
