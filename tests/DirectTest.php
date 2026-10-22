@@ -10,6 +10,7 @@ use ReactParallel\Pool\Test\Direct;
 use ReactParallel\Pool\Test\Metrics;
 use ReactParallel\Tests\AbstractPoolTest;
 use WyriHaximus\Metrics\Factory as MetricsFactory;
+use WyriHaximus\PoolInfo\Info;
 use WyriHaximus\PoolInfo\PoolInfoInterface;
 use WyriHaximus\PoolInfo\PoolInfoTestTrait;
 
@@ -39,5 +40,17 @@ final class DirectTest extends AbstractPoolTest
         $pool->releaseGroup($group);
         self::assertTrue($pool->close());
         self::assertTrue($pool->kill());
+    }
+
+    #[Test]
+    public function info(): void
+    {
+        self::assertSame([
+            Info::TOTAL => 0,
+            Info::BUSY => 0,
+            Info::CALLS => 0,
+            Info::IDLE => 0,
+            Info::SIZE => 0,
+        ], [...new Direct()->info()]);
     }
 }
