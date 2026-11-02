@@ -25,8 +25,8 @@
   },
   "require-dev": {
     "react-parallel/pool-tests": "^7.1.0",
-    "wyrihaximus/async-test-utilities": "^14.5.0",
-    "wyrihaximus/makefiles": "^0.15.4"
+    "wyrihaximus/async-test-utilities": "^14.7.0",
+    "wyrihaximus/makefiles": "^0.15.5"
   },
   "autoload": {
     "psr-4": {
